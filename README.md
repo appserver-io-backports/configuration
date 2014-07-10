@@ -35,11 +35,11 @@ into an object structure:
 
 ```php
 
-    // initialize the SimpleXMLElement with the content XML configuration file
-    $configuration = new Configuration();
-    $configuration->initFromFile('/your/file.xml');
-    
-    // add a new node XML to the root node 
-    $configuration->addChildWithNameAndValue('baseDirectory', '/application/base/directory');
+// initialize the SimpleXMLElement with the content XML configuration file
+$configuration = new Configuration();
+$configuration->initFromFile('/your/file.xml');
+
+// add a new node XML to the root node 
+$configuration->addChildWithNameAndValue('baseDirectory', '/application/base/directory');
 
 ```
