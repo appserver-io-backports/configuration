@@ -1,23 +1,37 @@
 <?php
 
 /**
- * TechDivision\ApplicationServer\ConfigurationTest
+ * TechDivision\Configuration\ConfigurationTest
  *
  * NOTICE OF LICENSE
  *
  * This source file is subject to the Open Software License (OSL 3.0)
  * that is available through the world-wide-web at this URL:
  * http://opensource.org/licenses/osl-3.0.php
+ *
+ * PHP version 5
+ *
+ * @category  Library
+ * @package   TechDivision_Configuration
+ * @author    Tim Wagner <tw@techdivision.com>
+ * @copyright 2014 TechDivision GmbH <info@techdivision.com>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/techdivision/TechDivision_Configuration
+ * @link      http://www.appserver.io
  */
-namespace TechDivision\ApplicationServer;
+
+namespace TechDivision\Configuration;
 
 /**
+ * Test immplementation for the XML based configuration implementation.
  *
- * @package TechDivision\ApplicationServer
- * @copyright Copyright (c) 2013 <info@techdivision.com> - TechDivision GmbH
- * @license http://opensource.org/licenses/osl-3.0.php
- *          Open Software License (OSL 3.0)
- * @author Tim Wagner <tw@techdivision.com>
+ * @category  Library
+ * @package   TechDivision_Configuration
+ * @author    Tim Wagner <tw@techdivision.com>
+ * @copyright 2014 TechDivision GmbH <info@techdivision.com>
+ * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
+ * @link      https://github.com/techdivision/TechDivision_Configuration
+ * @link      http://www.appserver.io
  */
 class ConfigurationTest extends \PHPUnit_Framework_TestCase
 {
@@ -304,7 +318,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
     public function testCallMagicFunctionWithValidChildName()
     {
         $this->configuration->init($this->getTestNode('test', 'testValue'));
-        $this->assertInstanceOf('TechDivision\ApplicationServer\Configuration', $this->configuration->getTestNode());
+        $this->assertInstanceOf('TechDivision\Configuration\Configuration', $this->configuration->getTestNode());
     }
 
     /**
