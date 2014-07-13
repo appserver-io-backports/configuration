@@ -45,7 +45,6 @@ interface ConfigurationInterface
      * @param \TechDivision\Configuration\Interfaces\ConfigurationInterface $configuration The configuration to compare to
      *
      * @return boolean TRUE if the configurations are equal, else FALSE
-     * @todo Actually it's not possible to add interfaces as type hints for method parameters, this results in an infinite loop
      */
     public function equals(ConfigurationInterface $configuration);
 }
