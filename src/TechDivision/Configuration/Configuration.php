@@ -220,19 +220,18 @@ class Configuration implements ConfigurationInterface
      * Recursively initializes the configuration instance with the data from the
      * passed SimpleXMLElement.
      *
-     * @param \SimpleXMLElement $node  The node to load the data from
-     * @param string            $xpath The XPath expression of the XML node to load the data from
+     * @param \SimpleXMLElement $node The node to load the data from
      *
      * @return \TechDivision\Configuration\Interfaces\ConfigurationInterface The node instance itself
      */
-    public function init(\SimpleXMLElement $node, $xpath = '/')
+    public function init(\SimpleXMLElement $node)
     {
 
         // set the node name + value
         $this->setNodeName($node->getName());
 
+        // check if we found a node value
         $nodeValue = (string) $node;
-
         if (empty($nodeValue) === false) {
             $this->setValue(trim($nodeValue));
         }
@@ -392,16 +391,14 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
-     * Appends the passed attributes to the configuration
-     * node. If the attribute already exists it will be
-     * overwritten by default.
+     * Appends the passed attributes to the configuration node. If the
+     * attribute already exists it will be overwritten by default.
      *
-     * @param array   $data      The data with the attributes to append
-     * @param boolean $overwrite TRUE if the attribute should be overwritten, else FALSE
+     * @param array $data The data with the attributes to append
      *
      * @return void
      */
-    public function appendData(array $data, $overwrite = true)
+    public function appendData(array $data)
     {
         foreach ($data as $key => $value) {
             $this->data[$key] = $value;
@@ -450,15 +447,13 @@ class Configuration implements ConfigurationInterface
                 $child = $this->getChild("/{$this->getNodeName()}/$key");
                 if ($child instanceof Configuration) {
                     return $child;
-                } else {
-                    return $this->getData($key);
                 }
-                break;
+                return $this->getData($key);
             case 'set':
                 $this->setData($key, isset($args[0]) ? $args[0] : null);
                 break;
             default:
-                throw new \Exception("Invalid method " . get_class($this) . "::" . $method . "(" . print_r($args, 1) . ")");
+                throw new \Exception("Invalid method " . get_class($this) . "::" . $method . "(" . print_r($args, true) . ")");
         }
     }
 
