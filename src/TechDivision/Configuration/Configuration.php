@@ -248,7 +248,7 @@ class Configuration implements ConfigurationInterface
             $cnt = new Configuration();
 
             // parse the configuration recursive
-            $cnt->init($child, $name);
+            $cnt->init($child);
 
             // append the configuration node to the parent
             $this->addChild($cnt);
