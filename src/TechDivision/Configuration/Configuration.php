@@ -519,6 +519,48 @@ class Configuration implements ConfigurationInterface
     }
 
     /**
+     * Merges this configuration element with the data found in the passed configuration file.
+     *
+     * @param string $file The path to the file we want to merge
+     *
+     * @return \TechDivision\Configuration\Interfaces\ConfigurationInterface The configuration created from the passed file
+     */
+    public function mergeFromFile($file)
+    {
+
+        // initialize a new configutation instance
+        $configuration = new Configuration();
+        $configuration->loadFromFile($file);
+
+        // merge the instance with this one
+        $this->merge($configuration);
+
+        // return this instance
+        return $configuration;
+    }
+
+    /**
+     * Merges this configuration element with the passed configuration data.
+     *
+     * @param string $string The string with the XML content to initialize from
+     *
+     * @return \TechDivision\Configuration\Interfaces\ConfigurationInterface The configuration created from the passed string
+     */
+    public function mergeFromString($string)
+    {
+
+        // initialize a new configutation instance
+        $configuration = new Configuration();
+        $configuration->loadFromString($string);
+
+        // merge the instance with this one
+        $this->merge($configuration);
+
+        // return this instance
+        return $configuration;
+    }
+
+    /**
      * Return's the node signature using a md5 hash based on
      * the node name and the param data.
      *
