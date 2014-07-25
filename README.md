@@ -43,3 +43,9 @@ $configuration->initFromFile('/your/file.xml');
 $configuration->addChildWithNameAndValue('baseDirectory', '/application/base/directory');
 
 ```
+
+# External Links
+
+* Documentation at [appserver.io](http://docs.appserver.io)
+* Documentation on [GitHub](https://github.com/techdivision/TechDivision_AppserverDocumentation)
+* [Getting started](https://github.com/techdivision/TechDivision_AppserverDocumentation/tree/master/docs/getting-started)
