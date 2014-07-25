@@ -347,7 +347,7 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $configurationTwo = new Configuration();
         $configurationTwo->initFromFile(__DIR__ . '/_files/META-INF/appserver-01-ds.xml');
         $configurationOne->merge($configurationTwo);
-        $this->configuration->initFromFile('_files/appserver.xml');
+        $this->configuration->initFromFile(__DIR__ . '/../../_files/appserver.xml');
         $this->configuration->addChild($configurationOne);
         $this->assertCount(2, $this->configuration->getChilds('/appserver/datasources/datasource'));
 
